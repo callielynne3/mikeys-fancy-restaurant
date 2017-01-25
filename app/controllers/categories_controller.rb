@@ -1,9 +1,12 @@
 class CategoriesController < ApplicationController
 
   def index
-  end
+    @categories = Category.all
+  end 
 
-  def show
+  def show 
+    @category = Category.find(params[:id])
+    @recipe = @category.recipes
   end
-
+  
 end
