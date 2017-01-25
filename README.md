@@ -1,24 +1,19 @@
-# README
+# MIKEY'S FANCY RESTAURANT: A Recipe Manager App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Created by
 
-* Ruby version
+### Callie Tomlinson, Derek Pham, Ibraheem Malik-Abdul, Woojae Yi, and Jonah Price.
 
-* System dependencies
 
-* Configuration
+## Motives
 
-* Database creation
+### An app that lets a restaurant's staff create recipes that will inspire its menu. A way for the staff to crowdsource the menu, enabling it to change each week. This app will streamline the restaurant's innovative processes.
 
-* Database initialization
 
-* How to run the test suite
+## Functionalities
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### - User signup/login/logout
+### - Create new recipe under a specific category (i.e. Appetizers, Salads, etc.)
+### - Recipe consists of name, ingredients, difficulty level, prep time, directions, and creator
+### - Edit existing recipes
