@@ -7,6 +7,6 @@ class CategoriesController < ApplicationController
   def show 
     @category = Category.find(params[:id])
     @recipe = @category.recipes
-  end 
-
-end 
+  end
+  
+end
