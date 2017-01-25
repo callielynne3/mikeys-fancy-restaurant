@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :ingredients
 
   
-  get '/' => 'users#new'
+  get '/' => 'category#index'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
