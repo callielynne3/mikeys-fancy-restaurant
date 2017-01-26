@@ -1,4 +1,4 @@
 class Ingredient < ApplicationRecord
-  belongs_to :recipe
-  # has_many :recipes, :through => :ingredients_recipes
+  has_many :recipes, through: :ingredients_recipes#, inverse_of: :ingredients
+  has_many :ingredients_recipes
 end

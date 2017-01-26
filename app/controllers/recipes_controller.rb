@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   def new
     @category = Category.find params[:category_id]
     @recipe = Recipe.new(:category => @category)
+    @ingredients = @recipe.ingredients
   end
 
   def show
