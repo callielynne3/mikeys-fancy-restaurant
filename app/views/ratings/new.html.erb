@@ -1,6 +1,6 @@
 <h2>Submit New Rating</h2>
 
 <%= form_for [@category, @recipe, @rating], url: {action: "create"} do |f| %>
-  Rating <%= f.select :rate, options_for_select( ["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]] ) %> <br>
+  Rating <%= f.select :rate, options_for_select( [["1", 1], ["2", 2], ["3", 3], ["4", 4], ["5", 5]] ) %> <br>
   <%= f.submit %>
 <% end %>

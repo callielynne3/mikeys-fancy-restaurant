@@ -31,9 +31,6 @@ recipes.each do |recipe|
   5.times do
     recipe.ingredients.create!(name: Faker::Food.ingredient)
   end
-  pp recipe
-  pp users.first.id
-  pp "*" * 50
   recipe.ratings.create!(user_id: users.first.id, rate: rand(1..5))
 end
 

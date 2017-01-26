@@ -9,9 +9,18 @@ class RatingsController < ApplicationController
   def create
   	@category = Category.find params[:category_id]
   	@recipe = Recipe.find params[:recipe_id]
-  	@recipe.ratings << Rating.create(rating_params)
-
-  	redirect_to category_recipe_url(@category, @recipe)
+  	@rating = @recipe.ratings.new(rating_params)
+  	@rating.user = current_user
+  	if @rating.save
+  		redirect_to category_recipe_url(@category, @recipe)
+  	# if user wants to update rating
+  	elsif Rating.where(recipe: @recipe, user: current_user)
+  		if Rating.where(recipe: @recipe, user: current_user).update(rating_params)
+  			redirect_to category_recipe_url(@category, @recipe)
+  		end
+  	else
+  		redirect_to new_category_recipe_rating_path(@category, @recipe)
+  	end
   end
 
   def edit
@@ -22,6 +31,6 @@ class RatingsController < ApplicationController
 
 private
   def rating_params
-  	params.require(:rating).permit(:rate)
+  	params.require(:rating).permit(:rate, :user, :recipe)
   end
 end
