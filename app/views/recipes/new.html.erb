@@ -1,15 +1,21 @@
 <h2>Submit New Recipe</h2>
 
 <%= form_for [@category, @recipe], url: {action: "create"} do |f| %>
-	Recipes:
-	<%= f.text_field :name %>
-	<%= f.select :difficulty, options_for_select( [["Easy", "easy"], ["Medium", "medium"], ["Hard", "hard"]] ) %>
-  <%= f.number_field :prep_time %>
-  <%= f.text_area :directions %>
-  <%= f.text_field :creator %>
+	Recipes: <br>
+	Name: <%= f.text_field :name %> <br>
+	Difficulty <%= f.select :difficulty, options_for_select( [["Easy", "easy"], ["Medium", "medium"], ["Hard", "hard"]] ) %> <br>
+	Prep Time (minutes) <%= f.number_field :prep_time %> <br>
+	Directions <%= f.text_area :directions %> <br>
+	Creator <%= f.text_field :creator %> <br>
+	<br>
+	Ingredients:<br>
+  <%= f.fields_for :ingredient do |ingredient_form| %>
+    <%= ingredient_form.text_field :name %>
+  <% end %>
+
 	<%= f.submit %>
 <% end %>
 
 <% if @recipe.errors.any? %>
-  <%= @recipe.errors.messages %>
+<%= @recipe.errors.messages %>
 <% end %>
