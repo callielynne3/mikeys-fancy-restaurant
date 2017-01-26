@@ -1,9 +1,11 @@
-<p><%= link_to "Back to #{@category.name}", category_path(@category) %></p>
-<h2><%= @recipe.name %></h2>
-<p><%= @recipe.difficulty %></p>
-<p><%= @recipe.prep_time %> minutes</p>
-<p><%= @recipe.directions %></p>
-<p><%= @recipe.creator %></p>
+<h1 class="ui center aligned header"><%= @recipe.name %></h1>
+<div class="ui center aligned list">
+  <div class="item"><%= @recipe.difficulty %></div>
+   <div class="item"><%= @recipe.prep_time %> minutes</div>
+   <div class="item"><%= @recipe.directions %></div>
+   <div class="item"><%= @recipe.creator %></div>
+  </div>
+</div>
 
 <ul>
   <% for ingredient in @ingredients %>
