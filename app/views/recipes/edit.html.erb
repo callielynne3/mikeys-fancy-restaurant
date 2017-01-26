@@ -1,0 +1,16 @@
+<h2>Edit Existing Recipe</h2>
+
+<%= form_for [@category, @recipe], url: {action: "update"} do |f| %>
+
+  Recipes:
+  <%= f.text_field :name %>
+  <%= f.select :difficulty, options_for_select( [["Easy", "easy"], ["Medium", "medium"], ["Hard", "hard"]]) %>
+  <%= f.number_field :prep_time %>
+  <%= f.text_area :directions %>
+  <%= f.text_field :creator %>
+    <%= f.submit %>
+<% end %>
+
+<% if @recipe.errors.any? %>
+  <%= @recipe.errors.messages %>
+<% end %>

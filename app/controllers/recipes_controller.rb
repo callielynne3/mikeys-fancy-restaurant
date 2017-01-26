@@ -11,6 +11,8 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @category = Category.find(params[:category_id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def create
@@ -27,6 +29,17 @@ class RecipesController < ApplicationController
   end
 
   def update
+    @category = Category.find(params[:category_id])
+    @recipe = Recipe.find(params[:id])
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to category_recipe_path(@category, @recipe), notice: 'Recipe successfully updated' }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit }
+        format.json { render @recipe.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
