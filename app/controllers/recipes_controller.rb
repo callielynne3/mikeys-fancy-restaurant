@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
     @recipe.category = @category
 
     if @recipe.save
-      redirect_to '/'
+      redirect_to category_recipe_path(@category, @recipe)
     else
       flash.now[:error] = "Could not save recipe"
       render :new

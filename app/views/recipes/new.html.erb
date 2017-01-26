@@ -7,12 +7,6 @@
 	Prep Time (minutes) <%= f.number_field :prep_time %> <br>
 	Directions <%= f.text_area :directions %> <br>
 	Creator <%= f.text_field :creator %> <br>
-	<br>
-	Ingredients:<br>
-  <%= f.fields_for :ingredient do |ingredient_form| %>
-    <%= ingredient_form.text_field :name %>
-  <% end %>
-
 	<%= f.submit %>
 <% end %>
 

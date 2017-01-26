@@ -5,5 +5,11 @@
 <p><%= @recipe.directions %></p>
 <p><%= @recipe.creator %></p>
 
+<ul>
+  <% for ingredient in @recipe.ingredients %>
+  <li><%= ingredient.name %></li>
+  <% end %>
+</ul>
+
 <p><%= link_to "Edit", edit_category_recipe_path(@recipe) %></p>
 <p><%= link_to "Delete", category_recipe_path(@recipe), method: :delete, data: {confirm: 'Are you sure?'} %></p>
