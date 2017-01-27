@@ -1,0 +1,20 @@
+<div class="ui container center aligned">
+  <div class="ui big celled list">
+  <% @recipes.each do |recipe| %>
+    <div class="item">
+      <div class="header"><%= link_to "#{recipe.name}", category_recipe_path(@category, recipe) %></div>
+      <div class="sub header">Recipe by: <%= recipe.creator %></div>
+    </div>
+    <p>
+      <%= truncate(recipe.directions, length: 60) %>
+    </p>
+    <p>
+      <%= pluralize(recipe.ingredients.length, 'ingredient') %>
+    </p>
+  <% end %>
+  </div>
+</div>
+
+<% if @recipes.blank? %>
+  <h4>There are no recipes containing the term <%= params[:search] %>.</h4>
+<% end %>
