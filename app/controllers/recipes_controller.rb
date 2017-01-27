@@ -55,12 +55,16 @@ private
     params.require(:recipe).permit(:name, :difficulty, :prep_time, :directions, :creator)
   end
 
+  # def rating_average
+  #   sum = 0
+  #   @ratings.each do |rating|
+  #     sum += rating.rate
+  #   end
+  #   sum / @ratings.length
+  # end
+
   def rating_average
-    sum = 0
-    @ratings.each do |rating|
-      sum += rating.rate
-    end
-    sum / @ratings.length
+    5
   end
 
 end
