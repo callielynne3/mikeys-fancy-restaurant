@@ -1,4 +1,4 @@
-<h1 class="ui center aligned header">Submit New Recipe</h1>
+<h1 class="ui center aligned header">Create <%= @category.name %></h1>
 
 <%= form_for [@category, @recipe], url: {action: "create"} do |f| %>
 	Recipes: <br>

@@ -1,0 +1,12 @@
+<div class="ui center aligned container">
+  <h2>Email: <%= current_user.email %></h2>
+  <h3>Name: <%= current_user.name %></h3>
+</div>
+
+<h2 class="ui center aligned header"><%= current_user.name %>'s Recipes</h2>
+
+<ul>
+  <% for recipe in current_user.recipes %>
+  <li><%= recipe.name %></li>
+  <% end %>
+</ul>

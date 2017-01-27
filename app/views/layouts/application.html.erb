@@ -12,7 +12,9 @@
   </head>
 
   <body>
+
    <nav class="ui menu">
+
     <div>
      <%= link_to "Mikey's Fancy Restaurant", '/', class: "item red" %>
     </div>
@@ -26,6 +28,7 @@
         <%= link_to "#{category.name}", category_path(category), class: "item" %>
       <% end %>
        <div class="right menu">
+
          <div class="ui right category search">
            <div class="ui icon input">
              <input class="prompt" type="text" placeholder="Search recipes...">
@@ -37,6 +40,7 @@
           <%= link_to "#{current_user.name}", '/profile', class: "item" %>
           <%= link_to "Logout", '/logout',  class: "item" %>
           <% else %>
+
           <%= link_to 'Login', '/login', class: "item" %>
           <%= link_to 'Signup', '/signup', class: "item" %>
         </div>

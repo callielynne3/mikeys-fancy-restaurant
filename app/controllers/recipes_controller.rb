@@ -10,6 +10,9 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @ingredients = @recipe.ingredients
     @ingredient = Ingredient.new
+    @rating = Rating.new
+    @ratings = @recipe.ratings
+    @score = rating_average
   end
 
   def edit
@@ -50,6 +53,14 @@ class RecipesController < ApplicationController
 private
   def recipe_params
     params.require(:recipe).permit(:name, :difficulty, :prep_time, :directions, :creator)
+  end
+
+  def rating_average
+    sum = 0
+    @ratings.each do |rating|
+      sum += rating.rate
+    end
+    sum / @ratings.length
   end
 
 end

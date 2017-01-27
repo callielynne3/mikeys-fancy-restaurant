@@ -2,10 +2,13 @@ User.destroy_all
 Category.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
+Rating.destroy_all
 
 3.times do
   User.create!(name: Faker::Name.name, email: Faker::Internet.email, password: "p123")
 end
+
+users = User.all
 
 categories = ["Appetizer", "Salad", "Main Course", "Dessert"]
 
@@ -28,4 +31,13 @@ recipes.each do |recipe|
   5.times do
     recipe.ingredients.create!(name: Faker::Food.ingredient)
   end
+  recipe.ratings.create!(user_id: users.first.id, rate: rand(1..5))
 end
+
+users = User.all
+
+users.each do |user|
+  user.recipes << Recipe.first
+end
+
+ratings = Rating.all

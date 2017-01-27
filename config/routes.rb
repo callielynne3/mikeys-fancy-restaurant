@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   resources :categories do
     resources :recipes do
       resources :ingredients
+      resources :ratings
     end
   end
+
+  get '/profile' => 'users#show'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -14,6 +17,4 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
-
-
 end
