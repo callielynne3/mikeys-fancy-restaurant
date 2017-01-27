@@ -21,7 +21,7 @@ class RecipesController < ApplicationController
     @ingredient = Ingredient.new
     @rating = Rating.new
     @ratings = @recipe.ratings
-    @score = rating_average
+    # @recipe.average = @recipe.average_rating
   end
 
   def edit
