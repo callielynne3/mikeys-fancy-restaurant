@@ -34,4 +34,10 @@ recipes.each do |recipe|
   recipe.ratings.create!(user_id: users.first.id, rate: rand(1..5))
 end
 
+users = User.all
+
+users.each do |user|
+  user.recipes << Recipe.first
+end
+
 ratings = Rating.all
