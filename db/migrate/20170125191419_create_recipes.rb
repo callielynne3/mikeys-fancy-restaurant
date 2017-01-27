@@ -7,7 +7,7 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.text :directions
       t.string :creator
       t.references :category
-
+      t.integer :average
       t.timestamps
     end
   end

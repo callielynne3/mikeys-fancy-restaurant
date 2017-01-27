@@ -2,6 +2,9 @@
   <div class="column">
     <div class="ui raised segment">
       <h1 class="ui left aligned header"><%= @recipe.name %></h1>
+      <a class="ui yellow ribbon label">Rating:</a>
+      <span><%= @recipe.average_rating %> <a href="<%= category_recipe_path(@recipe.category, @recipe) %>/ratings/new">[Add New rating]</a> </span>
+      <p></p>
       <a class="ui red ribbon label">Difficulty:</a>
       <span><%= @recipe.difficulty %></span>
       <p></p>
@@ -16,7 +19,7 @@
       </ul>
       <span></span>
       <p></p>
-      <a class="ui green ribbon label">Directions:</a>
+      <a class="ui purple ribbon label">Directions:</a>
       <span></span>
       <p><%= @recipe.directions %> </p>
       <a class="ui grey ribbon label">Creator:</a>

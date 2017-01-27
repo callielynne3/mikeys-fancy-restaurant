@@ -12,10 +12,12 @@ class RatingsController < ApplicationController
   	@rating = @recipe.ratings.new(rating_params)
   	@rating.user = current_user
   	if @rating.save
-  		redirect_to category_recipe_url(@category, @recipe)
+      update_average
+      redirect_to category_recipe_url(@category, @recipe)
   	# if user wants to update rating
   	elsif Rating.where(recipe: @recipe, user: current_user)
   		if Rating.where(recipe: @recipe, user: current_user).update(rating_params)
+        update_average
   			redirect_to category_recipe_url(@category, @recipe)
   		end
   	else
@@ -32,5 +34,10 @@ class RatingsController < ApplicationController
 private
   def rating_params
   	params.require(:rating).permit(:rate, :user, :recipe)
+  end
+
+  def update_average
+    new_average = @rating.recipe.average_rating
+    @rating.recipe.update_attributes(average: new_average)
   end
 end
