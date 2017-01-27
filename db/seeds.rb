@@ -29,3 +29,9 @@ recipes.each do |recipe|
     recipe.ingredients.create!(name: Faker::Food.ingredient)
   end
 end
+
+users = User.all
+
+users.each do |user|
+  user.recipes << Recipe.first
+end
