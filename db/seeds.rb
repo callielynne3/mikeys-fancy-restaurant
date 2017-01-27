@@ -21,8 +21,8 @@ categories = Category.all
 difficulty = ["Easy", "Medium", "Hard"]
 prep_time = [15, 20, 30, 35, 45, 50, 60, 75, 90, 120, 200]
 
-rand(5..15).times do
-  categories.each do |category|
+categories.each do |category|
+  rand(5..15).times do
     category.recipes.create!(name: Faker::Pokemon.name, difficulty: difficulty.sample, prep_time: prep_time.sample, directions: Faker::Lorem.paragraph, creator: Faker::StarWars.character)
   end
 end
