@@ -31,7 +31,7 @@
 
          <div class="ui right category search">
            <div class="ui icon input">
-             <input class="prompt" type="text" placeholder="Search recipes...">
+             <%= form_tag(category_recipes_path(category_id: 1), :method => "get", id: "search-form") do %> <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %> <%= submit_tag "Search", :name => nil %> <% end %>
              <!-- <i class="search icon"></i> -->
            </div>
            <div class="results"></div>

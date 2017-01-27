@@ -1,4 +1,13 @@
 class RecipesController < ApplicationController
+  def index
+    @category = Category.find params[:category_id]
+    @recipes = Recipe.all
+    if params[:search] 
+      @recipes = Recipe.search(params[:search]).order("created_at DESC")
+    else 
+      @recipes = Recipe.all.order("created_at DESC") 
+    end
+  end 
 
   def new
     @category = Category.find params[:category_id]
@@ -23,6 +32,7 @@ class RecipesController < ApplicationController
   def create
     @category = Category.find params[:category_id]
     @recipe = Recipe.new(recipe_params)
+    @recipe[:user_id] = current_user.id
     @recipe.category = @category
 
     if @recipe.save
@@ -48,6 +58,10 @@ class RecipesController < ApplicationController
   end
 
   def destroy
+    @category = Category.find(params[:category_id])
+    @recipe = Recipe.find (params[:id])
+    @recipe.destroy
+    redirect_to category_path(@category)
   end
 
 private
