@@ -17,15 +17,6 @@ end
 difficulty = ["Easy", "Medium", "Hard"]
 prep_time = [15, 20, 30, 35, 45, 50, 60, 75, 90, 120, 200]
 
-Recipe.all.each do |recipe|
-  rand(0..3).times do
-    recipe.ingredients.create!(name: "#{Faker::Food.measurement} #{Faker::Food.spice}")
-  end
-  rand(0..3).times do
-    recipe.ingredients.create!(name: Faker::Food.ingredient)
-  end
-end
-
 User.all.each do |user|
   Category.all.each do |category|
     rand(5..15).times do
@@ -34,6 +25,13 @@ User.all.each do |user|
   end
 
   Recipe.all.each do |recipe|
+    rand(0..3).times do
+      recipe.ingredients.create!(name: "#{Faker::Food.measurement} #{Faker::Food.spice}")
+    end
+    rand(0..3).times do
+      recipe.ingredients.create!(name: Faker::Food.ingredient)
+    end
+
     recipe.ratings.create!(user_id: user.id, rate: rand(1..5))
   end
 end
