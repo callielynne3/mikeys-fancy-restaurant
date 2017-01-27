@@ -1,20 +1,47 @@
-<h1 class="ui center aligned header"><%= @recipe.name %></h1>
-<div class="ui center aligned list">
-  <div class="item"><%= @recipe.difficulty %></div>
-   <div class="item"><%= @recipe.prep_time %> minutes</div>
-   <div class="item"><%= @recipe.directions %></div>
-   <div class="item"><%= @recipe.creator %></div>
-   Average score: <div class="item"><%= @score %></div>
+<div class="ui one column grid">
+  <div class="column">
+    <div class="ui raised segment">
+      <h1 class="ui left aligned header"><%= @recipe.name %></h1>
+      <a class="ui red ribbon label">Difficulty:</a>
+      <span><%= @recipe.difficulty %></span>
+      <p></p>
+      <a class="ui blue ribbon label">Prep Time:</a>
+      <span><%= @recipe.prep_time %> minutes</span>
+      <p></p>
+      <a class="ui green ribbon label">Ingredients:</a>
+      <ul>
+        <% for ingredient in @ingredients %>
+        <li><%= ingredient.name %></li>
+        <% end %>
+      </ul>
+      <span></span>
+      <p></p>
+      <a class="ui green ribbon label">Directions:</a>
+      <span></span>
+      <p><%= @recipe.directions %> </p>
+      <a class="ui grey ribbon label">Creator:</a>
+      <span><%= @recipe.creator %></span>
+      <p> </p>
+      <div class="ui one column grid">
+        <div class="column">
+
+          <%= link_to "Add new Ingredient", new_category_recipe_ingredient_path(@category, @recipe, @ingredient), class: "ui left floated teal button" %>
+          <div class="ui right floated buttons">
+            <%= link_to "Edit", edit_category_recipe_path(@category, @recipe), class: "ui right aligned button" %>
+            <div class="or"></div>
+            <%= link_to "Delete", category_recipe_path(@category, @recipe), {method: :delete, data: {confirm: 'Are you sure?'}, class: "ui right alinged red button"} %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 
-<ul>
-  <% for ingredient in @ingredients %>
-  <li><%= ingredient.name %></li>
-  <% end %>
-</ul>
 
-<p><%= link_to "Add new Ingredient", new_category_recipe_ingredient_path(@category, @recipe, @ingredient) %></p>
-<p><%= link_to "Rate this Recipe", new_category_recipe_rating_path(@category, @recipe, @rating) %></p>
-
-<p><%= link_to "Edit", edit_category_recipe_path(@category, @recipe) %></p>
-<p><%= link_to "Delete", category_recipe_path(@category, @recipe), method: :delete, data: {confirm: 'Are you sure?'} %></p>
+<!-- <div class="ui center aligned list">
+  <span class="item"> <span></span> <%= @recipe.difficulty %></span>
+  <div class="item"><%= @recipe.prep_time %> minutes</div>
+  <div class="item"><%= @recipe.directions %></div>
+  <div class="item"><%= @recipe.creator %></div>
+</div> -->
