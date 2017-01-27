@@ -1,20 +1,20 @@
 <h1 class="ui center aligned header"><%= @category.name.pluralize %></h1>
 
-<button class="fluid ui button"><%= link_to "Create a new #{@category.name.downcase}", new_category_recipe_path(@category) %></button>
+<button class="ui fluid button"><%= link_to "Create a new #{@category.name.downcase}", new_category_recipe_path(@category) %></button>
 <br>
 
 <div class="ui container center aligned">
   <div class="ui big celled list">
-  <% @recipes.each do |rec| %>
+  <% @recipes.each do |recipe| %>
     <div class="item">
-      <div class="header"><%= link_to "#{rec.name}", category_recipe_path(@category, rec) %></div>
-      <div class="sub header">Recipe by: <%= rec.creator %></div>
+      <div class="header"><%= link_to "#{recipe.name}", category_recipe_path(@category, recipe) %></div>
+      <div class="sub header">Recipe by: <%= recipe.creator %></div>
     </div>
     <p>
-      <%= truncate(rec.directions, length: 60) %>
+      <%= truncate(recipe.directions, length: 60) %>
     </p>
     <p>
-      <%= pluralize(rec.ingredients.length, 'ingredient') %>
+      <%= pluralize(recipe.ingredients.length, 'ingredient') %>
     </p>
   <% end %>
   </div>

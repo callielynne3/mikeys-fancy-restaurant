@@ -33,11 +33,7 @@ Recipe.all.each do |recipe|
 end
 
 User.all.each do |user|
-  p user.ratings.length
   Recipe.all.each do |recipe|
-    p recipe.ratings.length
     recipe.ratings.create!(user_id: user.id, rate: rand(1..5))
   end
 end
-
-ratings = Rating.all
