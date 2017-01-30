@@ -1,19 +1,8 @@
 # MIKEY'S FANCY RESTAURANT: A Recipe Manager App
 
-
-## Created by
-
-#### [Callie Tomlinson](https://github.com/callielynne3)
-#### [Derek Pham](https://github.com/derekmpham)
-#### [Ibraheem Abdul-Malik](https://github.com/ibraheem4)
-#### [Woojae Yi](https://github.com/oxwootang)
-#### [Jonah Price](https://github.com/jyonah)
-
-
 ## Motives
 
 An app that lets a restaurant's staff create recipes that will inspire its menu. A way for the staff to crowdsource the menu, enabling it to change each week. This app will streamline the restaurant's innovative processes.
-
 
 ## Functionalities
 
@@ -24,3 +13,28 @@ An app that lets a restaurant's staff create recipes that will inspire its menu.
 * Edit existing recipes
 * User profile page showing the user's submitted recipes
 * Homepage automatically builds the menu based upon top 5 rated rated recipes in each category
+
+## Setup
+
+### Install dependencies
+```
+$ bundle install
+```
+
+### Setup database
+```
+$ rails db:create && rails db:migrate && rails db:seed
+```
+
+### Run local server
+```
+$ rails server
+```
+
+## Created by
+
+#### [Callie Tomlinson](https://github.com/callielynne3)
+#### [Derek Pham](https://github.com/derekmpham)
+#### [Ibraheem Abdul-Malik](https://github.com/ibraheem4)
+#### [Woojae Yi](https://github.com/oxwootang)
+#### [Jonah Price](https://github.com/jyonah)
