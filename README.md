@@ -3,7 +3,11 @@
 
 ## Created by
 
-### Callie Tomlinson, Derek Pham, Ibraheem Malik-Abdul, Woojae Yi, and Jonah Price.
+* Callie Tomlinson
+* Derek Pham
+* Ibraheem Abdul-Malik
+* Woojae Yi
+* Jonah Price
 
 
 ## Motives
@@ -13,7 +17,7 @@
 
 ## Functionalities
 
-### - User signup/login/logout
-### - Create new recipe under a specific category (i.e. Appetizers, Salads, etc.)
-### - Recipe consists of name, ingredients, difficulty level, prep time, directions, and creator
-### - Edit existing recipes
+#### User signup/login/logout
+#### Create new recipe under a specific category (i.e. Appetizers, Salads, etc.)
+#### Recipe consists of name, ingredients, difficulty level, prep time, directions, and creator
+#### Edit existing recipes
